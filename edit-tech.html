@@ -5,9 +5,12 @@
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.css">
 	</head>
-	<body>
+	<body data-ng-app>
 		<div class="container">
-			<form class="form-vertical">
+			<aside class="well">{{tech}}
+			</aside>
+
+			<form class="form-horizontal">
 			
 				<fieldset>
 					<legend>Name</legend>
@@ -15,24 +18,31 @@
 					<div class="control-group">
 						<label class="control-label" for="name">What is this thing called?</label>
 						<div class="controls">
-							<input type="text" id="name" required>
+							<input type="text" id="name" data-ng-model="tech.name" required autofocus>
 						</div>
 					</div>
 				
 					<div class="control-group">
 						<label class="control-label">Is that a reference to&hellip;?</label>
 						<div class="controls">
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">facial hair</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">coffee</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">cycling</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">alcohol / drugs</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">music</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">old TV show / movie</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">retro / kitsch</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">art</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">fantasy / sci-fi</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">mythology</label>
-							<label class="checkbox inline"><input type="checkbox" name="name-ref">play on the name of tech it&apos;s based on</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.hair">facial hair</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.coffee">coffee</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.cycling">cycling</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.booze">alcohol or drugs</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.music">music</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.tv">an old TV show / movie</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.retro">retro / kitsch</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.art">art</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.fantasy">fantasy / sci-fi</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.myth">mythology</label>
+							<label class="checkbox inline"><input type="checkbox" data-ng-model="tech.ref.tech">a play on the name of another tech</label>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">When did it first appear?</label>
+						<div class="controls">
+							<input type="number" data-ng-model="tech.age" min="1950" max="2012" class="input-small">
 						</div>
 					</div>
 				
@@ -44,33 +54,31 @@
 					<div class="control-group">
 						<label class="control-label">Who made this thing?</label>
 						<div class="controls">
-							<label class="radio"><input type="radio" name="who">the government / military</label>
-							<label class="radio"><input type="radio" name="who">a school or university</label>
-							<label class="radio"><input type="radio" name="who">a dinosaur vendor <small>(Oracle, IBM&hellip;)</small></label>
-							<label class="radio"><input type="radio" name="who">a <em>Web 2.0</em> player <small>(Google, Twitter, Foursquare&hellip;)</small></label>
-							<label class="radio"><input type="radio" name="who">a big Open-Source vendor <small>(SpringSource, JBoss&hellip;)</small></label>
-							<label class="radio"><input type="radio" name="who">a small company / start-up</label>
-							<label class="radio"><input type="radio" name="who">just some dude on GitHub</label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="gov">the government / military</label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="edu">a school or university</label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="dinosaur">a tech dinosaur <small>(Oracle, IBM&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="web-2.0">a <em>Web 2.0</em> player <small>(Google, Twitter, Foursquare&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="open-source">a big Open-Source vendor <small>(SpringSource, JBoss&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="startup">a small company / start-up</label>
+							<label class="radio"><input type="radio" name="who" data-ng-model="tech.who" value="this-one-guy">just some dude on GitHub</label>
 						</div>
 					</div>
 					
 					<div class="control-group">
 						<label class="control-label" for="homepage">Where can I find out about it?</label>
 						<div class="controls">
-							<label class="radio"><input type="radio" name="where">you can't, it's proprietary</label>
-							<label class="radio"><input type="radio" name="where">its GitHub project</label>
-							<input type="text" name="where-github" placeholder="username/project" pattern="\w+/\w+">
-							<label class="radio"><input type="radio" name="where">its homepage</label>
-							<input type="url" name="where-url">
+							<label class="radio"><input type="radio" name="where" data-ng-model="tech.where" value="none">you can't, it's proprietary</label>
+							<label class="radio"><input type="radio" name="where" data-ng-model="tech.where" value="homepage">its homepage</label>
+							<input type="url" data-ng-model="tech.where-url" data-ng-disabled="tech.where != 'homepage'">
 						</div>
 					</div>
 					
 					<div class="control-group">
 						<label class="control-label">How is it licensed?</label>
 						<div class="controls">
-							<label class="radio"><input type="radio" name="license">commercial</label>
-							<label class="radio"><input type="radio" name="license">open-source</label>
-							<label class="radio"><input type="radio" name="license">creative commons</label>
+							<label class="radio"><input type="radio" name="tech.license" data-ng-model="tech.license">commercial</label>
+							<label class="radio"><input type="radio" name="tech.license" data-ng-model="tech.license">open-source</label>
+							<label class="radio"><input type="radio" name="tech.license" data-ng-model="tech.license">creative commons</label>
 						</div>
 					</div>
 				</fieldset>
@@ -85,10 +93,11 @@
 							<label class="radio"><input type="radio" name="purpose">build tool</label>
 							<label class="radio"><input type="radio" name="purpose">database</label>
 							<label class="radio"><input type="radio" name="purpose">no-SQL store</label>
-							<label class="radio"><input type="radio" name="purpose">messaging</label>
-							<label class="radio"><input type="radio" name="purpose">presentation</label>
+							<label class="radio"><input type="radio" name="purpose">messaging middleware</label>
+							<label class="radio"><input type="radio" name="purpose">presentation framework</label>
 							<label class="radio"><input type="radio" name="purpose">web framework</label>
 							<label class="radio"><input type="radio" name="purpose">test automation</label>
+							<label class="radio"><input type="radio" name="purpose">JavaScript library</label>
 						</div>
 					</div>
 					
@@ -96,20 +105,36 @@
 						<label class="control-label">What is it written in?</label>
 						<div class="controls">
 							<label class="checkbox"><input type="checkbox" name="language">bare metal <small>(assembly, machine-code, punched cards&hellip;)</small></label>
-							<label class="checkbox"><input type="checkbox" name="language">military-industrial complex behemoth <small>(Ada, COBOL&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">military-industrial behemoth <small>(Ada, COBOL&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language"><abbr title="Fourth-generation language">4GL</abbr> <small>(Informix, IEF&hellip;)</small></label>
-							<label class="checkbox"><input type="checkbox" name="language">old school language <small>(C, Fortran&hellip;)</small></label>
-							<label class="checkbox"><input type="checkbox" name="language">enterprise <abbr title="Object Oriented">OO</abbr> language <small>(C++, Java&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">old school <small>(C, Fortran&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">enterprise <abbr title="Object Oriented">OO</abbr> <small>(C++, Java&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">JVM pretender <small>(Groovy, Scala&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">.NET framework <small>(C#&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">popular modern language <small>(Ruby, Python&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">purist language nobody uses <small>(Haskell, Smalltalk, LISP&hellip;)</small></label>
-							<label class="checkbox"><input type="checkbox" name="language">the latest shiny thing <small>(Kotlin, Dart, Go&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">new shiny thing <small>(Kotlin, Dart, Go&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">toy language <small>(Visual BASIC, PHP, Logo&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">joke language <small>(Whitespace, LOLCODE&hellip;)</small></label>
 							<label class="checkbox"><input type="checkbox" name="language">shell script</label>
 							<label class="checkbox"><input type="checkbox" name="language">JavaScript</label>
 							<label class="checkbox"><input type="checkbox" name="language">CoffeeScript</label>
+							<label class="checkbox"><input type="checkbox" name="language">meta-CSS <small>(LESS, SASS, Stylus&hellip;)</small></labale>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>How good is it?</legend>
+
+					<div class="control-group">
+						<label class="control-label">Does it have automated tests?</label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="tests" data-ng-model="tests" value="0">automated what now?</label>
+							<label class="radio"><input type="radio" name="tests" data-ng-model="tests" value="1">there are some empty spec files generated by the framework it's written in</label>
+							<label class="radio"><input type="radio" name="tests" data-ng-model="tests" value="2">there are some tests but the coverage is not that high</label>
+							<label class="radio"><input type="radio" name="tests" data-ng-model="tests" value="3">there are a whole mess of brittle, tightly-coupled, incomprehensible tests, yeah</label>
+							<label class="radio"><input type="radio" name="tests" data-ng-model="tests" value="4">the tests are a shining temple of perfection</label>
 						</div>
 					</div>
 				</fieldset>
@@ -117,6 +142,8 @@
 			</form>
 		</div>		
 		
-		<script src="bootstrap/js/boostrap.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/hipsterdevstack.js"></script>
 	</body>
 </html>
