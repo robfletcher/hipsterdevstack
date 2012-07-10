@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Add / Edit Tech - Hipster Dev Stack</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+	</head>
+	<body>
+		<div class="container">
+			<form class="form-vertical">
+			
+				<fieldset>
+					<legend>Name</legend>
+				
+					<div class="control-group">
+						<label class="control-label" for="name">What is this thing called?</label>
+						<div class="controls">
+							<input type="text" id="name" required>
+						</div>
+					</div>
+				
+					<div class="control-group">
+						<label class="control-label">Is that a reference to&hellip;?</label>
+						<div class="controls">
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">facial hair</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">coffee</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">cycling</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">alcohol / drugs</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">music</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">old TV show / movie</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">retro / kitsch</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">art</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">fantasy / sci-fi</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">mythology</label>
+							<label class="checkbox inline"><input type="checkbox" name="name-ref">play on the name of tech it&apos;s based on</label>
+						</div>
+					</div>
+				
+				</fieldset>
+				
+				<fieldset>
+					<legend>Who's behind it?</legend>
+					
+					<div class="control-group">
+						<label class="control-label">Who made this thing?</label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="who">the government / military</label>
+							<label class="radio"><input type="radio" name="who">a school or university</label>
+							<label class="radio"><input type="radio" name="who">a dinosaur vendor <small>(Oracle, IBM&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who">a <em>Web 2.0</em> player <small>(Google, Twitter, Foursquare&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who">a big Open-Source vendor <small>(SpringSource, JBoss&hellip;)</small></label>
+							<label class="radio"><input type="radio" name="who">a small company / start-up</label>
+							<label class="radio"><input type="radio" name="who">just some dude on GitHub</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="homepage">Where can I find out about it?</label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="where">you can't, it's proprietary</label>
+							<label class="radio"><input type="radio" name="where">its GitHub project</label>
+							<input type="text" name="where-github" placeholder="username/project" pattern="\w+/\w+">
+							<label class="radio"><input type="radio" name="where">its homepage</label>
+							<input type="url" name="where-url">
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">How is it licensed?</label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="license">commercial</label>
+							<label class="radio"><input type="radio" name="license">open-source</label>
+							<label class="radio"><input type="radio" name="license">creative commons</label>
+						</div>
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<legend>What is it?</legend>
+					
+					<div class="control-group">
+						<label class="control-label">What is it for?</label>
+						<div class="controls">
+							<label class="radio"><input type="radio" name="purpose">operating system</label>
+							<label class="radio"><input type="radio" name="purpose">build tool</label>
+							<label class="radio"><input type="radio" name="purpose">database</label>
+							<label class="radio"><input type="radio" name="purpose">no-SQL store</label>
+							<label class="radio"><input type="radio" name="purpose">messaging</label>
+							<label class="radio"><input type="radio" name="purpose">presentation</label>
+							<label class="radio"><input type="radio" name="purpose">web framework</label>
+							<label class="radio"><input type="radio" name="purpose">test automation</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">What is it written in?</label>
+						<div class="controls">
+							<label class="checkbox"><input type="checkbox" name="language">bare metal <small>(assembly, machine-code, punched cards&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">military-industrial complex behemoth <small>(Ada, COBOL&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language"><abbr title="Fourth-generation language">4GL</abbr> <small>(Informix, IEF&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">old school language <small>(C, Fortran&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">enterprise <abbr title="Object Oriented">OO</abbr> language <small>(C++, Java&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">JVM pretender <small>(Groovy, Scala&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">.NET framework <small>(C#&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">popular modern language <small>(Ruby, Python&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">purist language nobody uses <small>(Haskell, Smalltalk, LISP&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">the latest shiny thing <small>(Kotlin, Dart, Go&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">toy language <small>(Visual BASIC, PHP, Logo&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">joke language <small>(Whitespace, LOLCODE&hellip;)</small></label>
+							<label class="checkbox"><input type="checkbox" name="language">shell script</label>
+							<label class="checkbox"><input type="checkbox" name="language">JavaScript</label>
+							<label class="checkbox"><input type="checkbox" name="language">CoffeeScript</label>
+						</div>
+					</div>
+				</fieldset>
+			
+			</form>
+		</div>		
+		
+		<script src="bootstrap/js/boostrap.min.js"></script>
+	</body>
+</html>
